@@ -35,7 +35,7 @@ npm run build
 - `src/App.tsx` — visible shared state, rehearsal control, review panel, confirmation gate, receipt, and registration host.
 - `src/*.test.ts` — exact ground-truth, guardrail, input, synchronization, registration, and cleanup tests.
 
-The app is static-hostable, including from a GitHub Pages project subpath. Vite uses relative production asset URLs (`base: "./"`). State is intentionally local and ephemeral. `RecallWorkbench` is the sole state transition boundary, so tool-driven and reviewer-driven actions cannot drift into separate workflows.
+The app is static-hostable, including from a project subpath. Vite uses relative production asset URLs (`base: "./"`). State is intentionally local and ephemeral. `RecallWorkbench` is the sole state transition boundary, so tool-driven and reviewer-driven actions cannot drift into separate workflows.
 
 ## WebMCP tool contract
 
@@ -89,7 +89,7 @@ The Model Context Tool Inspector is a development aid, not a runtime dependency.
 
 ## Accessibility and hosting
 
-The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The GitHub Pages workflow builds and deploys the single-page app without iframe dependencies. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
+The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The verified public build is hosted at `https://webmaxru.github.io/webmcp-recall-response-workbench/`; this private source repository runs validation-only GitHub Actions. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
 
 ## Limitations
 
