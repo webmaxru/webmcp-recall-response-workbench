@@ -1,0 +1,29 @@
+RECALL RESPONSE WORKBENCH — TARGET VOICEOVER: APPROXIMATELY 2:40
+
+This is Recall Response Workbench. The guided rehearsal uses the WebMCP fixture: 8,420 candidate orders collapse to exactly 37 affected orders.
+
+The safety-critical number is 213. Those orders carry lookalike lot L24-019, not affected lot L24-091, and every one is excluded.
+
+Rehearsal is a fast preview using the same domain service and visible state. It is not a WebMCP substitute.
+
+The evidence trail starts with recall RC-2026-014. Strict equality records 37 matches, 213 exclusions, and representative matched orders.
+
+The 37 orders resolve to four states: 10 warehouse, 9 in transit, 9 delivered, and 9 already returned.
+
+Each receives one mutually exclusive classification: quarantine, intercept, customer contact, or completed return.
+
+The workbench stages 10 warehouse quarantines, 9 carrier intercept requests, and 18 customer outreach drafts. Intercept-classified orders receive both a carrier request and a customer notice. Nothing is committed or released, and durable actions remain zero.
+
+Now I use the real Codex Site Tools integration. This app registers imperative WebMCP tools from the top-level page. I ask Codex to read the selected recall, trace the exact lot, classify every affected order, and stage a review without committing or sending anything.
+
+Codex discovers a complete set of small atomic tools registered once for the document. The page validates inputs in code, checks cancellation signals, and updates the visible interface before each tool result returns. Domain preconditions reject out-of-order operations with corrective errors.
+
+If an agent attempts to trace L24-019, the app rejects it and directs the agent back to exact affected lot L24-091.
+
+Codex reaches the staged-review boundary and stops. There is no WebMCP tool to confirm the recall, commit quarantine, release intercepts, or send outreach.
+
+I inspect the evidence and activate the normal visible confirmation button. Ordinary browser or Codex actuation may also reach this control, and any host or browser safety policies apply independently. That action creates the mocked durable receipt.
+
+The receipt tool returns RCP-RC2026014-091 only after confirmation, with quarantine, carrier, and customer counts plus a deterministic demo checksum. It is not cryptographic or durable: reset starts a new rehearsal and clears it.
+
+WebMCP handles repetitive, precise preparation. The page makes every step reviewable. Final commit occurs through the visible control; host and browser safety policies apply independently.
