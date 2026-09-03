@@ -3,8 +3,9 @@
 ## Publication
 
 - **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
-  (currently HTTP 404; working deployment remains a blocker and must remain free
-  and unrestricted through September 21, 2026 at 5:00 p.m. PT)
+  (GitHub Pages deployment and anonymous HTTP 200 smoke test passed on
+  2026-09-03; keep it free and unrestricted through September 21, 2026 at
+  5:00 p.m. PT)
 - **Repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
   (public; GitHub detects the root MIT license)
 - **Source:** Complete runnable source is included in this repository.
@@ -39,15 +40,15 @@
 - [x] Automated tests, typecheck, and production build
 - [x] Vercel and Netlify static hosting configuration
 - [x] Repository-side GitHub Pages deployment workflow
-- [ ] Working public HTTPS deployment (configured URL currently returns 404)
+- [x] Working public HTTPS deployment anonymously smoke-tested
 - [x] Four clean screenshots, exact captions, and a validated 2:22 local final master
 - [x] Fresh GPT-5.6 Sol Codex run discovered and invoked the deployed Site Tools,
       completed all seven staging steps, and left zero durable actions
 - [ ] Upload the validated Codex Site Tool final master publicly to YouTube
 - [ ] Paste `SUBMISSION.md` copy into Devpost
 
-Repository **Settings → Pages** must select **GitHub Actions** as the source. The
-workflow intentionally does not change repository settings through an API.
+Repository Pages uses **GitHub Actions**; the deployment workflow passed on
+2026-09-03.
 
 ## Explicit OpenAI compatibility limitations
 

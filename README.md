@@ -7,9 +7,9 @@ No credentials, runtime secrets, customer data, external APIs, or server are req
 ## Live demo and source
 
 - **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
-  — returns HTTP 404 as of the latest readiness audit; a working deployment is
-  still required before submission and must remain free and unrestricted through
-  September 21, 2026 at 5:00 p.m. PT.
+  — deployed through this repository's GitHub Pages workflow and anonymously
+  smoke-tested with HTTP 200 on 2026-09-03. It must remain free and
+  unrestricted through September 21, 2026 at 5:00 p.m. PT.
 - **Challenge gallery:** https://webmaxru.github.io/webmcp-challenge/
 - **Source repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
   (public; GitHub detects the root `LICENSE` as MIT)
@@ -104,7 +104,7 @@ The Model Context Tool Inspector is a development aid, not a runtime dependency.
 
 ## Accessibility and hosting
 
-The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The public source repository includes validation-only CI plus `.github/workflows/deploy-pages.yml`, which builds `dist` and deploys it through the official GitHub Pages actions. In **Settings → Pages**, select **GitHub Actions** as the source, then commit/push the workflow or run it manually. The configured URL still returned 404 during the latest audit. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
+The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The public source repository includes validation-only CI plus `.github/workflows/deploy-pages.yml`, which builds `dist` and deploys it through the official GitHub Pages actions. The Pages workflow and anonymous HTTP 200 smoke test passed on 2026-09-03. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
 
 ## Limitations
 
