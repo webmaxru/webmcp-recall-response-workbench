@@ -1,0 +1,41 @@
+{
+  "plugin": "devpost-hackathon",
+  "version": 2,
+  "hackathon": {
+    "slug": "webmcp",
+    "name": "The WebMCP Challenge",
+    "url": "https://webmcp.devpost.com",
+    "selected": true,
+    "source": "known"
+  },
+  "participant": {
+    "name": "",
+    "display_name": ""
+  },
+  "project": {
+    "name": "Recall Response Workbench — Recall the Right Items",
+    "summary": "Find the right 37, protect the other 8,383, and put the irreversible decision behind a visible review control.",
+    "ai_usage": "An external AI agent invokes WebMCP tools over deterministic synthetic recall data; the app has no embedded LLM backend.",
+    "codex_usage": "Author confirms OpenAI Codex with the webmaxru/web-ai-agent-skills WebMCP skill for this project. Project notes document GPT-5.6 Sol Site Tools testing and the narrated demo."
+  },
+  "current_stage": "prepare-submission",
+  "completed_stages": [
+    "start-hackathon",
+    "review",
+    "resources",
+    "prepare-submission"
+  ],
+  "rules_acknowledged": true,
+  "learning": {
+    "status": "not-started",
+    "current_step": "",
+    "completed_steps": [],
+    "plan_file": "",
+    "checklist_file": ""
+  },
+  "submission": {
+    "draft_file": "devpost-submission.md",
+    "status": "drafting"
+  },
+  "next_command": "submit-project"
+}
