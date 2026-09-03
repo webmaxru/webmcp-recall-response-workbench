@@ -2,6 +2,8 @@
 
 > This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
 
+**Project:** Recall Response Workbench — Recall the Right 37, Protect the Other 8,383
+
 This folder contains the final narration and captions for the published
 **2:22** demo, safely under the three-minute limit.
 `DEMO_SCRIPT.md` in the repository root is the authoritative storyboard:

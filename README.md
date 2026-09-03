@@ -1,4 +1,4 @@
-# Recall Response Workbench
+# Recall Response Workbench — Recall the Right 37, Protect the Other 8,383
 
 > This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
 

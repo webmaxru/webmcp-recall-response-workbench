@@ -1,8 +1,8 @@
-# Devpost Submission Copy
+# Submission information
 
 ## Project name
 
-Recall Response Workbench
+**Recall Response Workbench — Recall the Right 37, Protect the Other 8,383**
 
 ## Tagline
 
