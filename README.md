@@ -8,11 +8,10 @@ No credentials, runtime secrets, customer data, external APIs, or server are req
 
 ## Live demo and source
 
-- **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
-  — deployed through this repository's GitHub Pages workflow and anonymously
+- **Project GitHub Pages site:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+  — deployed through this repository's own GitHub Pages workflow and anonymously
   smoke-tested with HTTP 200 on 2026-09-03. It must remain free and
   unrestricted through September 21, 2026 at 5:00 p.m. PT.
-- **Challenge gallery:** https://webmaxru.github.io/webmcp-challenge/
 - **Source repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
   (public; GitHub detects the root `LICENSE` as MIT)
 - **Demo video:** [Watch the 2:22 narrated Codex/WebMCP walkthrough](https://youtu.be/04OXd6_Sppc)
