@@ -42,11 +42,7 @@ This prototype demonstrates how explicit browser tools can reduce brittle UI aut
   and unrestricted through September 21, 2026 at 5:00 p.m. PT.
 - **Source:** https://github.com/webmaxru/webmcp-recall-response-workbench
   — public; GitHub detects the root MIT license.
-- **Video:** no MP4 is committed. Recording drafts and final masters remain only
-  under the ignored local `submission-video/` directory. Publish a final YouTube
-  recording that follows `DEMO_SCRIPT.md` — a fresh Codex session showing real Site
-  Tool discovery and calls. The current final-master runtime is 2:22. Use the
-  generated upload-ready caption file at `submission-assets/demo-captions.srt`.
+- **Video:** https://youtu.be/04OXd6_Sppc
 
 ## YouTube title and description
 

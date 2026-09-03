@@ -12,9 +12,8 @@
 - **License:** MIT (`LICENSE`).
 - **Local recording policy:** MP4 drafts and final masters remain only under the
   ignored `submission-video/` directory and are not committed.
-- **Required final video:** public YouTube recording under three minutes showing
-  real Codex Site Tool discovery and calls, recorded from a fresh Codex session
-  per `DEMO_SCRIPT.md` (current local final-master runtime 2:22).
+- **Published video:** https://youtu.be/04OXd6_Sppc — 2:22, under three minutes,
+  showing real Codex Site Tool discovery and calls from a fresh session.
 - **Judge credentials:** None required.
 
 ## Submission checklist
@@ -44,7 +43,7 @@
 - [x] Four clean screenshots, exact captions, and a validated 2:22 local final master
 - [x] Fresh GPT-5.6 Sol Codex run discovered and invoked the deployed Site Tools,
       completed all seven staging steps, and left zero durable actions
-- [ ] Upload the validated Codex Site Tool final master publicly to YouTube
+- [x] Public Codex Site Tool demo: https://youtu.be/04OXd6_Sppc
 - [ ] Paste `SUBMISSION.md` copy into Devpost
 
 Repository Pages uses **GitHub Actions**; the deployment workflow passed on

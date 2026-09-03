@@ -1,5 +1,7 @@
 # Recall Response Workbench
 
+> This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
+
 A small, polished WebMCP Challenge submission showing how an agent and a human can safely coordinate an exact-lot product recall. The app deterministically generates **8,420** orders in-browser, finds exactly **37** orders from affected lot `L24-091`, and explicitly excludes **213** orders from confusable lot `L24-019`.
 
 No credentials, runtime secrets, customer data, external APIs, or server are required.
@@ -13,10 +15,7 @@ No credentials, runtime secrets, customer data, external APIs, or server are req
 - **Challenge gallery:** https://webmaxru.github.io/webmcp-challenge/
 - **Source repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
   (public; GitHub detects the root `LICENSE` as MIT)
-- **Recording status:** a validated 2:22 narrated final master exists only in the
-  ignored local `submission-video/` directory; no MP4 is committed.
-- **Caption upload path:** `submission-assets/demo-captions.srt` (the upload-ready
-  SRT generated for the final master belongs at this committed path).
+- **Demo video:** [Watch the 2:22 narrated Codex/WebMCP walkthrough](https://youtu.be/04OXd6_Sppc)
 
 ## Why WebMCP improves this workflow
 

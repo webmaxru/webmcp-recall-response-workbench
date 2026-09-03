@@ -1,8 +1,9 @@
 # Submission Media Assets
 
-This folder contains recording-ready narration and upload-ready captions for the
-current **2:22** final master, safely under the three-minute limit and the 2:40
-production ceiling.
+> This project was created using the [WebMCP Agent Skill from the Web AI Agent Skills collection](https://github.com/webmaxru/web-ai-agent-skills).
+
+This folder contains the final narration and captions for the published
+**2:22** demo, safely under the three-minute limit.
 `DEMO_SCRIPT.md` in the repository root is the authoritative storyboard:
 operator setup, exact prompts, on-screen actions, the per-tool-call scroll and
 cursor choreography, and the four segments to speed up in post.
@@ -26,8 +27,8 @@ Generated files:
   Unchanged by the latest choreography revision: the full-site scroll tour and
   the on-camera session start both fit inside the existing 0:00–0:30 spoken
   hook without moving any line, so no retiming was needed to preserve the hook.
-- `demo-captions.srt` — destination for the generated upload-ready captions that
-  match the current 2:22 final master and `VOICEOVER.txt`.
+- `demo-captions.srt` — captions synchronized to the published 2:22 video and
+  `VOICEOVER.txt`.
 - `screenshots/01-overview.png`
 - `screenshots/02-staged-review.png`
 - `screenshots/03-confirmation-gate.png`
@@ -44,7 +45,7 @@ Live demo: https://webmaxru.github.io/webmcp-recall-response-workbench/
 Source: https://github.com/webmaxru/webmcp-recall-response-workbench
 (public; the root MIT license is detected by GitHub).
 
-The remaining media blocker is publication: a validated 2:22 narrated final
-master showing real Codex Site Tool discovery and calls exists only in ignored
-`submission-video/`. Upload it publicly to YouTube and attach
-`demo-captions.srt`.
+Published demo: https://youtu.be/04OXd6_Sppc
+
+The local final master remains only in ignored `submission-video/`;
+`demo-captions.srt` is kept as the final caption source.
