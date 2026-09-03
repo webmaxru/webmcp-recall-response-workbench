@@ -48,6 +48,31 @@ This prototype demonstrates how explicit browser tools can reduce brittle UI aut
   Tool discovery and calls. The current final-master runtime is 2:22. Use the
   generated upload-ready caption file at `submission-assets/demo-captions.srt`.
 
+## YouTube title and description
+
+**Title**
+
+`Recall Response: 37 Orders Must Be Recalled. 8,383 Must Not. | WebMCP`
+
+**Description**
+
+```text
+One lot affects 37 orders. A nearly identical lot appears in 213 more, and touching those customers would be a costly mistake.
+
+In this 2:22 Codex demo, the Recall Response Workbench exposes nine WebMCP tools over 8,420 synthetic orders. Codex traces the exact lot, proves which look-alike orders are excluded, resolves fulfillment status, and stages 10 quarantines, 9 intercept requests, and 18 outreach drafts. No consequential action exists as a WebMCP tool; final confirmation remains visible and human-owned.
+
+The result is a precise, reviewable response that protects the right 37 without sweeping in the other 8,383 orders.
+
+This deterministic prototype does not send messages, stop shipments, or control a real recall.
+
+Try it: https://webmaxru.github.io/webmcp-recall-response-workbench/
+Source: https://github.com/webmaxru/webmcp-recall-response-workbench
+
+Built for the WebMCP Challenge.
+
+#WebMCP #AIAgents #ProductRecall #SupplyChain #Codex
+```
+
 ## Run and judge the source
 
 Requirements: a current Node.js 20 or 22 release supported by Vite.
