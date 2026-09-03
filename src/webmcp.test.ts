@@ -9,14 +9,26 @@ import {
 } from "./webmcp";
 
 describe("WebMCP imperative registration", () => {
-  it("prefers document.modelContext over the deprecated navigator fallback", () => {
+  it("requires a secure visible window and prefers document.modelContext", () => {
     const documentContext = { registerTool: vi.fn() } as ModelContextLike;
     const navigatorContext = { registerTool: vi.fn() } as ModelContextLike;
+    Object.defineProperty(window, "isSecureContext", {
+      configurable: true,
+      value: true,
+    });
     document.modelContext = documentContext;
     navigator.modelContext = navigatorContext;
     expect(resolveModelContext()).toBe(documentContext);
+
+    Object.defineProperty(window, "isSecureContext", {
+      configurable: true,
+      value: false,
+    });
+    expect(resolveModelContext()).toBeNull();
+
     delete document.modelContext;
     delete navigator.modelContext;
+    Reflect.deleteProperty(window, "isSecureContext");
   });
 
   it("registers the complete atomic tool set once and cleans it up", async () => {
@@ -164,6 +176,20 @@ describe("WebMCP imperative registration", () => {
     expect(service.getSnapshot().stage).toBe("case-ready");
   });
 
+  it("rejects unknown fields instead of trusting additionalProperties", async () => {
+    const service = new RecallWorkbench();
+    const readCase = createWebMcpTools(service, async () => {}).find(
+      (tool) => tool.name === "get_recall_case",
+    )!;
+
+    await expect(
+      readCase.execute({
+        recallId: RECALL_ID,
+        ignored: true,
+      }),
+    ).rejects.toThrow("Unexpected input field: ignored");
+  });
+
   it("exposes no tool that can perform the final consequential action", () => {
     const service = new RecallWorkbench();
     const allNames = createWebMcpTools(service, async () => {}).map(
@@ -240,16 +266,21 @@ describe("WebMCP imperative registration", () => {
   it("rolls back partial registration and reports all-or-nothing failure", async () => {
     const service = new RecallWorkbench();
     const tools = createWebMcpTools(service, async () => {}).slice(0, 3);
-    const unregisterTool = vi.fn();
+    const activeNames = new Set(["trace_affected_stock"]);
+    const unregisterTool = vi.fn((name: string) => activeNames.delete(name));
     const signals: AbortSignal[] = [];
     const context: ModelContextLike = {
       registerTool: vi.fn((tool, options) => {
         if (options) signals.push(options.signal);
-        if (tool.name === "trace_affected_stock") {
-          return Promise.reject(
-            new DOMException("Duplicate tool name.", "InvalidStateError"),
-          );
+        if (activeNames.has(tool.name)) {
+          throw new DOMException("Duplicate tool name.", "InvalidStateError");
         }
+        activeNames.add(tool.name);
+        options?.signal.addEventListener(
+          "abort",
+          () => activeNames.delete(tool.name),
+          { once: true },
+        );
       }),
       unregisterTool,
     };
@@ -259,10 +290,11 @@ describe("WebMCP imperative registration", () => {
     expect(outcome.errors).toHaveLength(1);
     expect(outcome.errors[0]).toMatch(/trace_affected_stock/);
     expect(context.registerTool).toHaveBeenCalledTimes(3);
-    expect(unregisterTool).toHaveBeenCalledTimes(3);
+    expect(unregisterTool).toHaveBeenCalledTimes(2);
     expect(unregisterTool).toHaveBeenCalledWith("get_recall_case");
-    expect(unregisterTool).toHaveBeenCalledWith("trace_affected_stock");
     expect(unregisterTool).toHaveBeenCalledWith("find_impacted_fulfillments");
+    expect(unregisterTool).not.toHaveBeenCalledWith("trace_affected_stock");
+    expect(activeNames).toEqual(new Set(["trace_affected_stock"]));
     expect(signals.every((signal) => signal.aborted)).toBe(true);
   });
 });

@@ -72,6 +72,23 @@ function throwIfAborted(signal?: AbortSignal) {
   }
 }
 
+function assertOnlyKeys(
+  input: Record<string, unknown>,
+  allowedKeys: readonly string[],
+) {
+  if (!input || typeof input !== "object" || Array.isArray(input)) {
+    throw new Error("Tool input must be a JSON object.");
+  }
+  const unexpected = Object.keys(input).filter((key) => !allowedKeys.includes(key));
+  if (unexpected.length > 0) {
+    throw new Error(
+      `Unexpected input field${unexpected.length === 1 ? "" : "s"}: ${unexpected.join(
+        ", ",
+      )}. Allowed fields: ${allowedKeys.join(", ")}.`,
+    );
+  }
+}
+
 function readString(input: Record<string, unknown>, key: string) {
   const value = input[key];
   if (typeof value !== "string" || value.trim() === "") {
@@ -81,11 +98,16 @@ function readString(input: Record<string, unknown>, key: string) {
 }
 
 export function resolveModelContext(): ModelContextLike | null {
-  return (
-    (typeof document !== "undefined" && document.modelContext) ||
-    (typeof navigator !== "undefined" && navigator.modelContext) ||
-    null
-  );
+  if (
+    typeof window === "undefined" ||
+    typeof document === "undefined" ||
+    window.isSecureContext === false
+  ) {
+    return null;
+  }
+
+  const modelContext = document.modelContext || navigator.modelContext;
+  return modelContext || null;
 }
 
 export function createWebMcpTools(
@@ -123,9 +145,10 @@ export function createWebMcpTools(
         "Read the selected product recall case, its exact affected lot, confusable lot, severity, and candidate order count.",
       inputSchema: caseSchema,
       annotations: { readOnlyHint: true, untrustedContentHint: false },
-      execute: runReadOnly((input) =>
-        service.getRecallCase(readString(input, "recallId")),
-      ),
+      execute: runReadOnly((input) => {
+        assertOnlyKeys(input, ["recallId"]);
+        return service.getRecallCase(readString(input, "recallId"));
+      }),
     },
     {
       name: "trace_affected_stock",
@@ -134,12 +157,13 @@ export function createWebMcpTools(
         "Trace the selected recall across all candidate orders using an exact lot match and explicitly report excluded lookalike-lot orders.",
       inputSchema: exactLotSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.traceAffectedStock(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot"]);
+        return service.traceAffectedStock(
           readString(input, "recallId"),
           readString(input, "lot"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "find_impacted_fulfillments",
@@ -148,12 +172,13 @@ export function createWebMcpTools(
         "Resolve exact-lot orders into warehouse, in-transit, delivered, and already-returned fulfillment states.",
       inputSchema: exactLotSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.findImpactedFulfillments(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot"]);
+        return service.findImpactedFulfillments(
           readString(input, "recallId"),
           readString(input, "lot"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "classify_recall_actions",
@@ -162,12 +187,13 @@ export function createWebMcpTools(
         "Classify every exact-lot fulfillment into one mutually exclusive response action without committing operational changes.",
       inputSchema: exactLotSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.classifyRecallActions(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot"]);
+        return service.classifyRecallActions(
           readString(input, "recallId"),
           readString(input, "lot"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "preview_recall_scope",
@@ -176,12 +202,13 @@ export function createWebMcpTools(
         "Open the visible review scope for the exact recipients, lookalike exclusions, and classified actions; makes no durable change.",
       inputSchema: exactLotSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.previewRecallScope(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot"]);
+        return service.previewRecallScope(
           readString(input, "recallId"),
           readString(input, "lot"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "stage_inventory_quarantine",
@@ -190,12 +217,13 @@ export function createWebMcpTools(
         "Stage, but do not commit, quarantine instructions for exact-lot warehouse inventory in the visible review panel.",
       inputSchema: exactLotSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.stageInventoryQuarantine(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot"]);
+        return service.stageInventoryQuarantine(
           readString(input, "recallId"),
           readString(input, "lot"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "stage_customer_and_carrier_response",
@@ -215,13 +243,14 @@ export function createWebMcpTools(
         required: ["recallId", "lot", "template"],
       },
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.stageCustomerAndCarrierResponse(
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId", "lot", "template"]);
+        return service.stageCustomerAndCarrierResponse(
           readString(input, "recallId"),
           readString(input, "lot"),
           readString(input, "template"),
-        ),
-      ),
+        );
+      }),
     },
     {
       name: "cancel_staged_recall",
@@ -230,9 +259,10 @@ export function createWebMcpTools(
         "Clear the visible, uncommitted quarantine and outreach drafts for this recall case.",
       inputSchema: caseSchema,
       annotations: { readOnlyHint: false, untrustedContentHint: false },
-      execute: runMutation((input) =>
-        service.cancelStagedRecall(readString(input, "recallId")),
-      ),
+      execute: runMutation((input) => {
+        assertOnlyKeys(input, ["recallId"]);
+        return service.cancelStagedRecall(readString(input, "recallId"));
+      }),
     },
     {
       name: "get_recall_receipt",
@@ -241,9 +271,10 @@ export function createWebMcpTools(
         "Read the confirmed receipt for the current in-memory rehearsal, including the deterministic demo checksum; reset starts a new rehearsal and clears it.",
       inputSchema: caseSchema,
       annotations: { readOnlyHint: true, untrustedContentHint: false },
-      execute: runReadOnly((input) =>
-        service.getReceipt(readString(input, "recallId")),
-      ),
+      execute: runReadOnly((input) => {
+        assertOnlyKeys(input, ["recallId"]);
+        return service.getReceipt(readString(input, "recallId"));
+      }),
     },
   ];
 }
@@ -259,27 +290,23 @@ export function registerWebMcpTools(
   tools: WebMcpTool[],
 ) {
   const controller = new AbortController();
-  const attemptedNames: string[] = [];
+  const registeredNames = new Set<string>();
   let disposed = false;
   let cleaned = false;
-  let failureMessage: string | null = null;
-  let resolveTerminal!: (outcome: RegistrationOutcome) => void;
-  let terminalSettled = false;
-
-  const terminal = new Promise<RegistrationOutcome>((resolve) => {
-    resolveTerminal = resolve;
+  let resolveCancellation!: (outcome: RegistrationOutcome) => void;
+  const cancellation = new Promise<RegistrationOutcome>((resolve) => {
+    resolveCancellation = resolve;
   });
-
-  const settleTerminal = (outcome: RegistrationOutcome) => {
-    if (terminalSettled) return;
-    terminalSettled = true;
-    resolveTerminal(outcome);
-  };
 
   const cleanupRegistrations = () => {
     if (cleaned) return;
     cleaned = true;
-    for (const name of attemptedNames.splice(0).reverse()) {
+    const names = tools
+      .map((tool) => tool.name)
+      .filter((name) => registeredNames.has(name))
+      .reverse();
+    registeredNames.clear();
+    for (const name of names) {
       try {
         modelContext.unregisterTool?.(name);
       } catch {
@@ -289,56 +316,51 @@ export function registerWebMcpTools(
     controller.abort();
   };
 
-  const failRegistration = (name: string, error: unknown) => {
-    if (disposed || failureMessage) return;
-    failureMessage = `Failed to register ${name}: ${
-      error instanceof Error ? error.message : String(error)
-    }`;
-    cleanupRegistrations();
-    settleTerminal({
-      names: [],
-      errors: [failureMessage],
-      cancelled: false,
-    });
-  };
-
-  const pendingRegistrations: Promise<void>[] = [];
-  for (const tool of tools) {
-    if (disposed || failureMessage) break;
+  const pendingRegistrations = tools.map(async (tool) => {
     try {
-      const pending = modelContext.registerTool(tool, {
+      await modelContext.registerTool(tool, {
         signal: controller.signal,
       });
-      attemptedNames.push(tool.name);
-      pendingRegistrations.push(
-        Promise.resolve(pending).then(
-          () => {},
-          (error) => failRegistration(tool.name, error),
-        ),
-      );
+      if (!controller.signal.aborted) {
+        registeredNames.add(tool.name);
+      }
     } catch (error) {
-      failRegistration(tool.name, error);
-      break;
+      throw new Error(
+        `Failed to register ${tool.name}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+        { cause: error },
+      );
     }
-  }
+  });
 
   const allRegistrations = Promise.all(pendingRegistrations).then(
     (): RegistrationOutcome => {
       if (disposed) {
         return { names: [], errors: [], cancelled: true };
       }
-      if (failureMessage) {
-        return { names: [], errors: [failureMessage], cancelled: false };
-      }
       return {
-        names: [...attemptedNames],
+        names: tools
+          .map((tool) => tool.name)
+          .filter((name) => registeredNames.has(name)),
         errors: [],
+        cancelled: false,
+      };
+    },
+    (error): RegistrationOutcome => {
+      if (disposed) {
+        return { names: [], errors: [], cancelled: true };
+      }
+      cleanupRegistrations();
+      return {
+        names: [],
+        errors: [error instanceof Error ? error.message : String(error)],
         cancelled: false,
       };
     },
   );
 
-  const ready = Promise.race([terminal, allRegistrations]);
+  const ready = Promise.race([cancellation, allRegistrations]);
 
   return {
     ready,
@@ -346,7 +368,7 @@ export function registerWebMcpTools(
       if (disposed) return;
       disposed = true;
       cleanupRegistrations();
-      settleTerminal({
+      resolveCancellation({
         names: [],
         errors: [],
         cancelled: true,

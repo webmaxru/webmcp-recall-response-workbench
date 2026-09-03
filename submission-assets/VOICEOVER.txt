@@ -1,29 +1,60 @@
-RECALL RESPONSE WORKBENCH — TARGET VOICEOVER: APPROXIMATELY 2:40
+RECALL RESPONSE WORKBENCH — DEMO VOICEOVER
+Planned finished runtime 2:38. Record as continuous, natural spoken prose.
+Delivery: urgent and human at the open, calm and confident from the confirmation
+gate onward. Let the two silent windows breathe; the picture is doing the work.
 
-This is Recall Response Workbench. The guided rehearsal uses the WebMCP fixture: 8,420 candidate orders collapse to exactly 37 affected orders.
+A supplier calls at nine in the morning: one lot of kettles can overheat.
 
-The safety-critical number is 213. Those orders carry lookalike lot L24-019, not affected lot L24-091, and every one is excluded.
+Somewhere inside eight thousand orders are the few dozen that actually shipped
+that lot — next to a nearly identical lot number that is perfectly
+safe.
 
-Rehearsal is a fast preview using the same domain service and visible state. It is not a WebMCP substitute.
+Miss one, and a hazard stays in somebody's kitchen. Over-recall, and you alarm
+thousands of customers for nothing.
 
-The evidence trail starts with recall RC-2026-014. Strict equality records 37 matches, 213 exclusions, and representative matched orders.
+Today this is CSV exports and a spreadsheet war room, at the worst possible hour.
 
-The 37 orders resolve to four states: 10 warehouse, 9 in transit, 9 delivered, and 9 already returned.
+An assistant that only sees the screen doesn't help. It guesses which control to
+click, and nobody can audit a guess.
 
-Each receives one mutually exclusive classification: quarantine, intercept, customer contact, or completed return.
+So this page publishes its real operations instead. WebMCP turns the recall
+itself — trace, classify, stage — into tools the browser hands to the agent.
 
-The workbench stages 10 warehouse quarantines, 9 carrier intercept requests, and 18 customer outreach drafts. Intercept-classified orders receive both a carrier request and a customer notice. Nothing is committed or released, and durable actions remain zero.
+Fresh Codex session, site tools on. Nine tools, registered once by the page, in
+the order a recall actually happens.
 
-Now I use the real Codex Site Tools integration. This app registers imperative WebMCP tools from the top-level page. I ask Codex to read the selected recall, trace the exact lot, classify every affected order, and stage a review without committing or sending anything.
+One prompt, in the language an operations lead would actually use.
 
-Codex discovers a complete set of small atomic tools registered once for the document. The page validates inputs in code, checks cancellation signals, and updates the visible interface before each tool result returns. Domain preconditions reject out-of-order operations with corrective errors.
+[pause — the first tool call lands]
 
-If an agent attempts to trace L24-019, the app rejects it and directs the agent back to exact affected lot L24-091.
+Watch the page, not the transcript. Every call commits to the visible interface
+before the agent gets its answer, so the human and the model share one source of
+truth.
 
-Codex reaches the staged-review boundary and stops. There is no WebMCP tool to confirm the recall, commit quarantine, release intercepts, or send outreach.
+Exact-lot equality does the dangerous part. Thirty-seven recipients, and every
+lookalike order deliberately held out — counted on screen as proof, not as a
+promise.
 
-I inspect the evidence and activate the normal visible confirmation button. Ordinary browser or Codex actuation may also reach this control, and any host or browser safety policies apply independently. That action creates the mocked durable receipt.
+Every match then gets exactly one obligation: hold it in the warehouse,
+intercept it in transit, or call the person who already has it.
 
-The receipt tool returns RCP-RC2026014-091 only after confirmation, with quarantine, carrier, and customer counts plus a deterministic demo checksum. It is not cryptographic or durable: reset starts a new rehearsal and clears it.
+Quarantines, carrier intercepts, customer letters — all drafted, none released.
+Durable actions, still zero.
 
-WebMCP handles repetitive, precise preparation. The page makes every step reviewable. Final commit occurs through the visible control; host and browser safety policies apply independently.
+So I tell it to just send everything.
+
+[pause — the reply streams in]
+
+There is nothing for it to call. No confirm tool, no commit tool, no send tool —
+the consequential half of this workflow was never exposed as an API. That
+guardrail is the shape of the interface, not a sentence in a prompt.
+
+The last move stays human. I read the evidence, I take the decision, and the
+receipt records that it came from the visible review control.
+
+Now the agent reads back what was approved. The only tool left after the commit
+is read-only.
+
+The model does the precise, exhausting work. The page keeps every step
+reviewable. And the irreversible click still belongs to a person. Give the agent
+hands — keep the last decision human.

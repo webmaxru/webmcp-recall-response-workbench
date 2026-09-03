@@ -11,3 +11,6 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Local submission recordings and final masters (never commit)
+/submission-video/

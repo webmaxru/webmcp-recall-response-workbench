@@ -1,38 +1,50 @@
 # Submission Media Assets
 
-This folder contains recording-ready narration and captions for a target runtime of approximately **2:40**.
+This folder contains recording-ready narration and upload-ready captions for the
+current **2:22** final master, safely under the three-minute limit and the 2:40
+production ceiling.
+`DEMO_SCRIPT.md` in the repository root is the authoritative storyboard:
+operator setup, exact prompts, on-screen actions, the per-tool-call scroll and
+cursor choreography, and the four segments to speed up in post.
 
 Before submitting:
 
 1. Record the deployed app as a top-level page, not inside an iframe.
-2. Show the product working within the first 10–15 seconds.
-3. The final recording **must show real Codex Site Tool discovery and tool calls** against the page. A video showing only **Run guided rehearsal** is not sufficient.
-4. Use rehearsal mode only as the quick opening demonstration, and clearly retain its on-screen “not a WebMCP substitute” label.
-5. Show that there is no consequential WebMCP tool after staging, then activate the visible normal page control before the agent reads the receipt. Do not claim that a host or browser policy approved the action; such policies apply independently.
-6. Keep the exact fixture claims: 8,420 candidate orders, 37 affected `L24-091` orders, and 213 excluded `L24-019` lookalikes.
-7. Use the verified live URL linked below.
+2. Open on the problem and the stakes. The first ten seconds must not be a project name or a feature list — the opening voiceover hook must carry them even while the full-site scroll tour (item 3 below) is on screen.
+3. **Start a fresh Codex session and collapse the Codex sidebar on camera, as the first thing the recording shows** (0:00–0:06 in `DEMO_SCRIPT.md`) — do not do this before capture begins. Immediately after, run the full-site scroll tour: top → smooth scroll to the bottom → brief hold → smooth scroll back to top, timed to 0:06–0:30 so it plays under the opening hook, not as a silent tour.
+4. The final recording **must show real Codex Site Tool discovery and tool calls** against the page. A video showing only **Run guided rehearsal** is not sufficient — rehearsal mode is deliberately excluded from the recorded flow.
+5. Drive the whole seven-step chain from the single prompt P1, keeping the page and the transcript in frame together so each tool call is visibly paired with a state change. For every retrieval or state change, scroll the in-app Browser to the specific relevant area *just before* the event lands and hold a clearly visible cursor or cursor halo over the exact case/metric/table row/staging card/control being discussed — see "Per-tool-call on-page focus" in `DEMO_SCRIPT.md` for the concrete target of each of the seven calls.
+6. Show that there is no consequential WebMCP tool after staging, then activate the visible normal page control before the agent reads the receipt. Do not claim that a host or browser policy approved the action; such policies apply independently, and do not claim the agent was prevented from reaching the button.
+7. Keep the exact fixture claims: 8,420 candidate orders, 37 affected `L24-091` orders, and 213 excluded `L24-019` lookalikes.
+8. Accelerate only the marked latency windows (1.5×–4×) and never cut across a visible state change.
+9. **Cursor fallback (post-production only):** if the review pass shows the Codex/background-automation session did not render a visible system cursor during its own page interactions, overlay a high-contrast cursor with a subtle click halo synchronized to the recorded interaction coordinates, instead of re-recording. This overlay is a visual pointer only — it must never imply a click or state change that did not actually happen.
+10. Use the verified live URL linked below.
 
 Generated files:
 
-- `VOICEOVER.txt` — recording transcript.
-- `demo-captions.srt` — editable caption track timed to approximately 2:41.
-- `demo-draft.mp4` — 1600×900 H.264/AAC rehearsal storyboard with embedded
-  English captions and synthetic narration; visibly watermarked so it cannot be
-  mistaken for the required Codex capture.
+- `VOICEOVER.txt` — clean spoken-prose narration for the current script.
+  Unchanged by the latest choreography revision: the full-site scroll tour and
+  the on-camera session start both fit inside the existing 0:00–0:30 spoken
+  hook without moving any line, so no retiming was needed to preserve the hook.
+- `demo-captions.srt` — destination for the generated upload-ready captions that
+  match the current 2:22 final master and `VOICEOVER.txt`.
 - `screenshots/01-overview.png`
 - `screenshots/02-staged-review.png`
 - `screenshots/03-confirmation-gate.png`
 - `screenshots/04-confirmed-receipt.png`
+
+Recorded video files are intentionally not part of this folder or the repository.
+Keep rehearsal captures, drafts, and final masters only in the ignored
+`../submission-video/` directory.
 
 Adjust caption boundaries to the final edit without changing factual claims.
 
 Live demo: https://webmaxru.github.io/webmcp-recall-response-workbench/
 
 Source: https://github.com/webmaxru/webmcp-recall-response-workbench
-(currently private; must be public for challenge eligibility).
+(public; the root MIT license is detected by GitHub).
 
-The remaining media blocker is a public YouTube video showing real Codex Site
-Tool discovery and calls. A fresh GPT-5.6 Sol run successfully invoked the seven
-deployed staging tools and left the visible page awaiting review with zero
-durable actions. That run was not screen-recorded, so the included storyboard
-remains rehearsal media rather than the required public evidence.
+The remaining media blocker is publication: a validated 2:22 narrated final
+master showing real Codex Site Tool discovery and calls exists only in ignored
+`submission-video/`. Upload it publicly to YouTube and attach
+`demo-captions.srt`.

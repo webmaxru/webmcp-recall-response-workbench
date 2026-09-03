@@ -31,16 +31,17 @@ All nine tools are statically registered together. Invoke them in the workflow o
 1. At initial load, verify all nine atomic tools are registered from the top-level page in one synchronous initiation batch.
 2. Verify the same static tool set remains registered while domain preconditions gate the visible workflow order.
 3. Invoke an out-of-order tool and verify the domain service returns a corrective stage error without changing state.
-4. Before confirmation, verify `get_recall_receipt` returns `status: "not-confirmed"`.
-5. After confirmation through the visible review gate, verify the same receipt tool returns the receipt.
-6. Reload and verify all in-memory staging/receipt state resets.
-7. Abort a mutating invocation before its commit point and verify it does not change state.
-8. Start asynchronous registration, synchronously dispose it, then register again; verify no duplicate-name collision and no stale readiness report.
-9. Return pending promises from all nine registrations and verify every call is initiated before any promise settles.
-10. Reject one initiated registration asynchronously; verify every initiated name is unregistered, the shared lifecycle aborts, no unhandled rejection occurs, and no ready names are reported.
-11. Invoke a tool callback without a second options argument; verify preview/polyfill compatibility and normal precondition handling.
-12. Verify mutating tools synchronously flush visible React/store state and never call the deferred read-only paint hook.
-13. Confirm the plan, verify quarantine is committed and both carrier/customer responses are released, then reset and verify the ephemeral receipt is cleared.
+4. Add an undeclared input field and verify runtime validation names the unexpected and allowed fields.
+5. Before confirmation, verify `get_recall_receipt` returns `status: "not-confirmed"`.
+6. After confirmation through the visible review gate, verify the same receipt tool returns the receipt.
+7. Reload and verify all in-memory staging/receipt state resets.
+8. Abort a mutating invocation before its commit point and verify it does not change state.
+9. Start asynchronous registration, synchronously dispose it, then register again; verify no duplicate-name collision and no stale readiness report.
+10. Return pending promises from all nine registrations and verify every call is initiated before any promise settles.
+11. Reject one initiated registration asynchronously; verify every initiated name is unregistered, the shared lifecycle aborts, no unhandled rejection occurs, and no ready names are reported.
+12. Invoke a tool callback without a second options argument; verify preview/polyfill compatibility and normal precondition handling.
+13. Verify mutating tools synchronously flush visible React/store state and never call the deferred read-only paint hook.
+14. Confirm the plan, verify quarantine is committed and both carrier/customer responses are released, then reset and verify the ephemeral receipt is cleared.
 
 ## Natural-language routing evaluations
 
@@ -64,3 +65,11 @@ All nine tools are statically registered together. Invoke them in the workflow o
 - Keyboard Tab reaches skip link, rehearsal button, and confirmation button with visible focus.
 - Screen readers announce WebMCP status and the created receipt.
 - With WebMCP absent, the unavailable indicator and rehearsal path remain usable.
+
+## Browser/provider compatibility
+
+- Use the ChatGPT desktop in-app browser or Google Chrome 149 or later.
+- In Chrome, enable `chrome://flags/#enable-webmcp-testing` and restart the browser.
+- Open the app directly as a secure top-level page using HTTPS or localhost.
+- Confirm the public live URL remains free and unrestricted through September 21,
+  2026 at 5:00 p.m. PT.

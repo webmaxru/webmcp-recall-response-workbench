@@ -26,7 +26,7 @@ An agent can read the selected recall, trace an exact supplier lot, find affecte
 
 ## How was it implemented?
 
-The submission is a static Vite + React + TypeScript app with plain CSS and deterministic in-memory data. Imperative WebMCP tools are registered atomically in the top-level document through `document.modelContext`, with a legacy `navigator.modelContext` fallback. Registration stops and rolls back on the first failure. An `AbortController` manages registration lifetime; callbacks accept optional execution options for older previews and polyfills, validate input in code, and define the synchronous domain transition as the mutation commit point before paint synchronization.
+The submission is a static Vite + React + TypeScript app with plain CSS and deterministic in-memory data. Imperative WebMCP tools are registered atomically in the top-level document through `document.modelContext`, with a legacy `navigator.modelContext` fallback. All registrations are initiated together; when any failure is observed, the lifecycle rolls back its successfully registered tools and aborts pending work. An `AbortController` manages registration lifetime; callbacks accept optional execution options for older previews and polyfills, validate input in code, and define the synchronous domain transition as the mutation commit point before paint synchronization.
 
 Read-only and mutation annotations are accurate. Mutating tools commit through a synchronous React `flushSync` boundary and do not yield to paint hooks after state mutation. The app does not expose a confirm, commit, release, or send WebMCP tool. Vitest covers exact counts, carrier/customer staging, ephemeral receipt reset, confusable-lot rejection, one-time registration, asynchronous cleanup, duplicate protection, and synchronous visible mutation.
 
@@ -36,9 +36,40 @@ This prototype demonstrates how explicit browser tools can reduce brittle UI aut
 
 ## Submission links and publication status
 
-- **Live demo:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+- **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+  — currently returns HTTP 404, so the submission is blocked until a working
+  deployment is published and re-tested. The source includes a standard GitHub
+  Pages Actions workflow; repository Pages must use **GitHub Actions** as its source.
+  Once published, access must remain free and unrestricted through September 21,
+  2026 at 5:00 p.m. PT.
 - **Source:** https://github.com/webmaxru/webmcp-recall-response-workbench
-  — currently private and therefore not yet challenge-eligible.
-- **Video:** `submission-assets/demo-draft.mp4` is a 2:41 narrated,
-  captioned, watermarked rehearsal storyboard. Replace it with a public YouTube
-  recording that shows real Codex Site Tool discovery and calls.
+  — public; GitHub detects the root MIT license.
+- **Video:** no MP4 is committed. Recording drafts and final masters remain only
+  under the ignored local `submission-video/` directory. Publish a final YouTube
+  recording that follows `DEMO_SCRIPT.md` — a fresh Codex session showing real Site
+  Tool discovery and calls. The current final-master runtime is 2:22. Use the
+  generated upload-ready caption file at `submission-assets/demo-captions.srt`.
+
+## Run and judge the source
+
+Requirements: a current Node.js 20 or 22 release supported by Vite.
+
+```bash
+npm install
+npm run dev
+npm test
+npm run typecheck
+npm run build
+```
+
+Open the Vite URL directly as a top-level page. Use the ChatGPT desktop in-app
+browser or Google Chrome 149 or later. Chrome testing requires a secure context
+(`http://localhost` or HTTPS) and
+`chrome://flags/#enable-webmcp-testing`. Confirm that nine tools register,
+confusable lot `L24-019` is rejected, out-of-order calls return corrective errors,
+visible state advances before tool completion, and no WebMCP tool can confirm or
+release the staged response.
+
+Repository history begins with this challenge implementation; no separate
+pre-existing application is evidenced. The recall domain model, UI, WebMCP surface,
+tests, and documentation are the hackathon work.

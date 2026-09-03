@@ -2,15 +2,18 @@
 
 ## Publication
 
-- **Live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+- **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+  (currently HTTP 404; working deployment remains a blocker and must remain free
+  and unrestricted through September 21, 2026 at 5:00 p.m. PT)
 - **Repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
-  (currently private; must be public before submission)
+  (public; GitHub detects the root MIT license)
 - **Source:** Complete runnable source is included in this repository.
 - **License:** MIT (`LICENSE`).
-- **Draft video:** `submission-assets/demo-draft.mp4` (2:41, narrated,
-  captioned, and visibly watermarked as a rehearsal storyboard).
+- **Local recording policy:** MP4 drafts and final masters remain only under the
+  ignored `submission-video/` directory and are not committed.
 - **Required final video:** public YouTube recording under three minutes showing
-  real Codex Site Tool discovery and calls.
+  real Codex Site Tool discovery and calls, recorded from a fresh Codex session
+  per `DEMO_SCRIPT.md` (current local final-master runtime 2:22).
 - **Judge credentials:** None required.
 
 ## Submission checklist
@@ -35,13 +38,16 @@
 - [x] Responsive and accessible static UI
 - [x] Automated tests, typecheck, and production build
 - [x] Vercel and Netlify static hosting configuration
-- [x] Persistent live HTTPS deployment smoke-tested
-- [x] Four clean screenshots and a narrated rehearsal storyboard captured
+- [x] Repository-side GitHub Pages deployment workflow
+- [ ] Working public HTTPS deployment (configured URL currently returns 404)
+- [x] Four clean screenshots, exact captions, and a validated 2:22 local final master
 - [x] Fresh GPT-5.6 Sol Codex run discovered and invoked the deployed Site Tools,
       completed all seven staging steps, and left zero durable actions
-- [ ] Make the private repository public
-- [ ] Record real Codex Site Tool footage and upload it publicly to YouTube
+- [ ] Upload the validated Codex Site Tool final master publicly to YouTube
 - [ ] Paste `SUBMISSION.md` copy into Devpost
+
+Repository **Settings → Pages** must select **GitHub Actions** as the source. The
+workflow intentionally does not change repository settings through an API.
 
 ## Explicit OpenAI compatibility limitations
 

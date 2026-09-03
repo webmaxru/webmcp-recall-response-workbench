@@ -1,71 +1,220 @@
 1
-00:00:00,000 --> 00:00:08,000
-This is Recall Response Workbench. The guided rehearsal evaluates the same deterministic fixture used by the WebMCP tools.
+00:00:00,050 --> 00:00:04,097
+A supplier calls at nine in the morning:
+one lot of kettles can overheat.
 
 2
-00:00:08,000 --> 00:00:15,000
-8,420 candidate orders collapse to exactly 37 affected orders.
+00:00:04,097 --> 00:00:08,345
+Somewhere inside eight thousand orders are
+the few dozen that actually shipped
 
 3
-00:00:15,000 --> 00:00:25,000
-The safety-critical number is 213. Those orders carry L24-019, a lookalike that is not the affected lot L24-091.
+00:00:08,345 --> 00:00:12,465
+that lot — next to a nearly identical lot
+number that is perfectly
 
 4
-00:00:25,000 --> 00:00:32,000
-The workbench explicitly excludes every one of those lookalikes.
+00:00:12,465 --> 00:00:13,299
+safe.
 
 5
-00:00:32,000 --> 00:00:42,000
-Rehearsal is only a fast preview. It uses the same domain service and visible state, but it is not a WebMCP substitute.
+00:00:13,299 --> 00:00:16,389
+Miss one, and a hazard stays in somebody's
+kitchen.
 
 6
-00:00:42,000 --> 00:00:52,000
-The evidence trail starts with recall RC-2026-014 and exact supplier lot L24-091.
+00:00:16,389 --> 00:00:18,206
+Over-recall, and you alarm
 
 7
-00:00:52,000 --> 00:01:01,000
-A strict equality filter records 37 matches, 213 exclusions, and representative matched orders.
+00:00:18,206 --> 00:00:20,139
+thousands of customers for nothing.
 
 8
-00:01:01,000 --> 00:01:11,000
-The 37 affected orders resolve to 10 warehouse, 9 in-transit, 9 delivered, and 9 already-returned orders.
+00:00:20,139 --> 00:00:22,113
+Today this is CSV exports and a
 
 9
-00:01:11,000 --> 00:01:22,000
-Each receives one classification: quarantine, intercept, contact, or completed return.
+00:00:22,113 --> 00:00:25,509
+spreadsheet war room, at the worst
+possible hour.
 
 10
-00:01:22,000 --> 00:01:32,000
-The app stages 10 quarantines, 9 carrier intercept requests, and 18 customer outreach drafts.
+00:00:25,509 --> 00:00:28,669
+An assistant that only sees the screen
+doesn't help.
 
 11
-00:01:32,000 --> 00:01:38,000
-Nothing is committed or sent. Durable actions remain zero.
+00:00:28,669 --> 00:00:30,567
+It guesses which control to
 
 12
-00:01:38,000 --> 00:01:48,000
-Now I use real Codex Site Tools. The top-level page registers imperative WebMCP tools.
+00:00:30,567 --> 00:00:32,836
+click, and nobody can audit a guess.
 
 13
-00:01:48,000 --> 00:01:59,000
-I ask Codex to trace the exact lot, classify the affected orders, and stage a review without committing or sending.
+00:00:32,836 --> 00:00:36,192
+So this page publishes its real operations
+instead.
 
 14
-00:01:59,000 --> 00:02:10,000
-Codex invokes one registered atomic tool set. Domain preconditions enforce order, and the visible page updates before results return.
+00:00:36,192 --> 00:00:38,391
+WebMCP turns the recall
 
 15
-00:02:10,000 --> 00:02:18,000
-An attempt to use L24-019 is rejected and corrected to affected lot L24-091.
+00:00:38,391 --> 00:00:43,843
+itself — trace, classify, stage — into
+tools the browser hands to the agent.
 
 16
-00:02:18,000 --> 00:02:26,000
-Codex stops at staged review. There is no WebMCP confirm, commit, or send tool.
+00:00:43,843 --> 00:00:46,366
+Fresh Codex session, site tools on.
 
 17
-00:02:26,000 --> 00:02:33,000
-I inspect the evidence and activate the visible normal page control.
+00:00:46,366 --> 00:00:49,491
+Nine tools, registered once by the page,
+in
 
 18
-00:02:33,000 --> 00:02:41,000
-Codex reads the current rehearsal receipt and non-cryptographic demo checksum. Reset clears both.
+00:00:49,491 --> 00:00:51,829
+the order a recall actually happens.
+
+19
+00:00:51,829 --> 00:00:55,567
+One prompt, in the language an operations
+lead would actually use.
+
+20
+00:00:55,567 --> 00:00:57,951
+Watch the page, not the transcript.
+
+21
+00:00:57,951 --> 00:01:00,880
+Every call commits to the visible
+interface
+
+22
+00:01:00,880 --> 00:01:05,984
+before the agent gets its answer, so the
+human and the model share one source of
+
+23
+00:01:05,984 --> 00:01:06,713
+truth.
+
+24
+00:01:06,713 --> 00:01:09,560
+Exact-lot equality does the dangerous
+part.
+
+25
+00:01:09,560 --> 00:01:12,199
+Thirty-seven recipients, and every
+
+26
+00:01:12,199 --> 00:01:17,824
+lookalike order deliberately held out —
+counted on screen as proof, not as a
+
+27
+00:01:17,824 --> 00:01:18,692
+promise.
+
+28
+00:01:18,692 --> 00:01:23,981
+Every match then gets exactly one
+obligation: hold it in the warehouse,
+
+29
+00:01:23,981 --> 00:01:27,407
+intercept it in transit, or call the
+person who already has it.
+
+30
+00:01:27,407 --> 00:01:32,801
+Quarantines, carrier intercepts, customer
+letters — all drafted, none released.
+
+31
+00:01:32,801 --> 00:01:35,116
+Durable actions, still zero.
+
+32
+00:01:35,116 --> 00:01:36,956
+So I tell it to just send everything.
+
+33
+00:01:36,956 --> 00:01:38,449
+There is nothing for it to call.
+
+34
+00:01:38,449 --> 00:01:42,072
+No confirm tool, no commit tool, no send
+tool —
+
+35
+00:01:42,072 --> 00:01:46,875
+the consequential half of this workflow
+was never exposed as an API.
+
+36
+00:01:46,875 --> 00:01:47,535
+That
+
+37
+00:01:47,535 --> 00:01:51,597
+guardrail is the shape of the interface,
+not a sentence in a prompt.
+
+38
+00:01:51,597 --> 00:01:53,287
+The last move stays human.
+
+39
+00:01:53,287 --> 00:01:56,481
+I read the evidence, I take the decision,
+and the
+
+40
+00:01:56,481 --> 00:01:59,815
+receipt records that it came from the
+visible review control.
+
+41
+00:01:59,815 --> 00:02:02,315
+Now the agent reads back what was
+approved.
+
+42
+00:02:02,315 --> 00:02:04,595
+The only tool left after the commit
+
+43
+00:02:04,595 --> 00:02:05,602
+is read-only.
+
+44
+00:02:05,602 --> 00:02:08,646
+The model does the precise, exhausting
+work.
+
+45
+00:02:08,646 --> 00:02:10,718
+The page keeps every step
+
+46
+00:02:10,718 --> 00:02:11,562
+reviewable.
+
+47
+00:02:11,562 --> 00:02:14,919
+And the irreversible click still belongs
+to a person.
+
+48
+00:02:14,919 --> 00:02:15,937
+Give the agent
+
+49
+00:02:15,937 --> 00:02:18,403
+hands — keep the last decision human.

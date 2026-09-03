@@ -6,12 +6,27 @@ No credentials, runtime secrets, customer data, external APIs, or server are req
 
 ## Live demo and source
 
-- **Live HTTPS demo:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+- **Configured live URL:** https://webmaxru.github.io/webmcp-recall-response-workbench/
+  — returns HTTP 404 as of the latest readiness audit; a working deployment is
+  still required before submission and must remain free and unrestricted through
+  September 21, 2026 at 5:00 p.m. PT.
 - **Challenge gallery:** https://webmaxru.github.io/webmcp-challenge/
 - **Source repository:** https://github.com/webmaxru/webmcp-recall-response-workbench
-  (private by instruction; it must be made public before Devpost submission)
-- **Narrated rehearsal storyboard:** `submission-assets/demo-draft.mp4`
-  (watermarked draft, not the required real Codex capture)
+  (public; GitHub detects the root `LICENSE` as MIT)
+- **Recording status:** a validated 2:22 narrated final master exists only in the
+  ignored local `submission-video/` directory; no MP4 is committed.
+- **Caption upload path:** `submission-assets/demo-captions.srt` (the upload-ready
+  SRT generated for the final master belongs at this committed path).
+
+## Why WebMCP improves this workflow
+
+Recall response normally requires a person or brittle automation to reconcile lot
+codes, fulfillment states, and multiple response systems screen by screen. WebMCP
+turns those steps into explicit, validated browser operations while the same
+evidence remains visible. The agent can exhaustively trace and classify thousands of
+orders; the human can verify exact-lot exclusions, cancel staged drafts, and retain
+the final release decision. This combination is safer and more inspectable than
+opaque click automation or a disconnected agent-only workflow.
 
 ## Run locally
 
@@ -75,7 +90,7 @@ OpenAI ChatGPT/Codex Site Tools currently discover imperative tools registered b
 
 ## Chrome 149+ preview fallback
 
-1. Install a compatible Chrome preview build. Chrome 149 uses the legacy `navigator.modelContext` surface; newer builds prefer `document.modelContext`.
+1. Use the ChatGPT desktop in-app browser or Google Chrome 149 or later. Chrome 149 uses the legacy `navigator.modelContext` surface; newer builds prefer `document.modelContext`.
 2. Enable `chrome://flags/#enable-webmcp-testing` and relaunch.
 3. Serve the app from `http://localhost` or HTTPS, then open it as the top-level page.
 4. Use the Model Context Tool Inspector (if available) to inspect and invoke tools with the deterministic inputs in [TESTING.md](TESTING.md).
@@ -89,7 +104,7 @@ The Model Context Tool Inspector is a development aid, not a runtime dependency.
 
 ## Accessibility and hosting
 
-The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The verified public build is hosted at `https://webmaxru.github.io/webmcp-recall-response-workbench/`; this private source repository runs validation-only GitHub Actions. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
+The UI uses semantic regions, native buttons, visible focus styles, status announcements, a skip link, high contrast, reduced visual density on mobile, and no motion-dependent interaction. The public source repository includes validation-only CI plus `.github/workflows/deploy-pages.yml`, which builds `dist` and deploys it through the official GitHub Pages actions. In **Settings → Pages**, select **GitHub Actions** as the source, then commit/push the workflow or run it manually. The configured URL still returned 404 during the latest audit. `vercel.json`, `netlify.toml`, and `public/_headers` provide origin isolation, `Origin-Agent-Cluster: ?1`, and a self-only `tools` Permissions Policy where the host supports custom response headers. GitHub Pages does not provide repository-defined custom response headers.
 
 ## Limitations
 
@@ -103,6 +118,13 @@ The UI uses semantic regions, native buttons, visible focus styles, status annou
 ## Judge credentials
 
 **None required.** The app has no login.
+
+## Hackathon scope and prior work
+
+Repository history begins with the WebMCP challenge implementation and does not show
+a separate pre-existing application being reused. The deterministic recall model,
+WebMCP tools, UI, tests, and submission documentation in this repository are the
+challenge project.
 
 ## License
 
