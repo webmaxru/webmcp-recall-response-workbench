@@ -18,12 +18,13 @@
     "ai_usage": "An external AI agent invokes WebMCP tools over deterministic synthetic recall data; the app has no embedded LLM backend.",
     "codex_usage": "Author confirms OpenAI Codex with the webmaxru/web-ai-agent-skills WebMCP skill for this project. Project notes document GPT-5.6 Sol Site Tools testing and the narrated demo."
   },
-  "current_stage": "prepare-submission",
+  "current_stage": "submit-project",
   "completed_stages": [
     "start-hackathon",
     "review",
     "resources",
-    "prepare-submission"
+    "prepare-submission",
+    "submit-project"
   ],
   "rules_acknowledged": true,
   "learning": {
@@ -35,7 +36,10 @@
   },
   "submission": {
     "draft_file": "devpost-submission.md",
-    "status": "drafting"
+    "status": "submitted",
+    "project_id": 1416615,
+    "submission_id": 1170349,
+    "url": "https://devpost.com/software/recall-response-workbench-recall-the-right-items"
   },
-  "next_command": "submit-project"
+  "next_command": "hackathon-map"
 }
